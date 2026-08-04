@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ShushantKhanalPhoto.Models.Photo>
+@{
+    Layout = "_Layout";
+}
+
+<div class="page-top">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Shu_Kha Photography</div>
+            <h1 class="hero-title">Based in Midwest</h1>
+            <p class="hero-sub">Capturing your precious moments, street styles, and what nature has to offer.</p>
+            <a href="@Url.Action("Index", "Gallery")" class="btn btn-solid">View Gallery</a>
+        </div>
+    </section>
+
+    <!-- Featured Photos Strip -->
+    <section class="featured-strip">
+        <div class="section-header">
+            <h2 class="section-title">Featured Work</h2>
+            <div class="section-line"></div>
+            <a href="@Url.Action("Index", "Gallery")" class="section-link">See All →</a>
+        </div>
+
+        <div class="featured-grid">
+            @* @foreach (var photo in Model.Take(3))
+            {
+                <a href="@Url.Action("Detail", "Gallery", new { id = photo.Id })" class="featured-card">
+                    <img src="@photo.ImageUrl" alt="@photo.Title" loading="lazy" />
+                    <div class="featured-card-label">@photo.Title</div>
+                </a>
+            }  *@
+        </div> 
+    </section>
+</div>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ShushantKhanalPhoto.Models.Photo>
+@{
+    Layout = "_Layout";
+}
+
+<div class="gallery-page">
+    <div class="section-header">
+        <h1 class="section-title">Gallery</h1>
+        <div class="section-line"></div>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="gallery-filters">
+        <a href="@Url.Action("Index", "Gallery")" class="filter-btn @(ViewBag.ActiveFilter == null ? "active" : "")">All</a>
+        @foreach (var category in ViewBag.Categories)
+        {
+            <a href="@Url.Action("Index", "Gallery", new { category = category })" class="filter-btn @(ViewBag.ActiveFilter == category ? "active" : "")">@category</a>
+        }
+    </div>
+
+    <!-- Photo Grid -->
+    <div class="photo-grid">
+        @foreach (var photo in Model)
+        {
+            <a href="@Url.Action("Detail", "Gallery", new { id = photo.Id })" class="photo-card">
+                <img src="@photo.ImageUrl" alt="@photo.Title" loading="lazy" />
+                <div class="photo-card-overlay">
+                    <div class="photo-card-title">@photo.Title</div>
+                    <div class="photo-card-cat">@photo.Category</div>
+                </div>
+            </a>
+        }
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div style="text-align: center; padding: 80px 20px; color: var(--muted);">
+            <p style="font-size: 1.1rem;">No photos found in this category.</p>
+            <a href="@Url.Action("Index", "Gallery")" style="color: var(--accent); margin-top: 16px; display: inline-block;">View all photos →</a>
+        </div>
+    }
+</div>

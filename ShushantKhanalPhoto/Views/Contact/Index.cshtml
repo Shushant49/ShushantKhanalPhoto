@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="contact-page">
+    @if (TempData["Message"] != null)
+    {
+        <div style="background: var(--accent); color: var(--bg); padding: 16px 24px; border-radius: 4px; margin-bottom: 40px; text-align: center; font-size: 15px;">
+            @TempData["Message"]
+        </div>
+    }
+
+    <div style="max-width: 900px; margin: 0 auto; text-align: center; padding: 80px 48px;">
+        <div style="font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px;">Get In Touch</div>
+        <h1 style="font-family: var(--font-display); font-size: 3.5rem; font-weight: 300; line-height: 1.1; margin-bottom: 28px;">Let's Create Something Beautiful</h1>
+        <p style="color: var(--muted); font-size: 1.05rem; line-height: 1.8; max-width: 600px; margin: 0 auto 60px;">Whether you have a project in mind or just want to say hello, I'd love to hear from you. Reach out and let's start a conversation.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 60px; text-align: left;">
+            <div style="background: var(--bg3); padding: 32px; border-radius: 12px; border: 1px solid var(--border);">
+                <div style="font-size: 2rem; margin-bottom: 16px;">📧</div>
+                <div style="font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px;">Email</div>
+                <div style="color: var(--text); font-size: 1rem; margin-bottom: 4px;">khanalshushant49@gmail.com</div>
+                <div style="color: var(--muted); font-size: 0.85rem;">I usually respond within 24 hours</div>
+            </div>
+
+            <div style="background: var(--bg3); padding: 32px; border-radius: 12px; border: 1px solid var(--border);">
+                <div style="font-size: 2rem; margin-bottom: 16px;">📞</div>
+                <div style="font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px;">Phone</div>
+                <div style="color: var(--text); font-size: 1rem; margin-bottom: 4px;">+1 (308) 240-1902</div>
+                <div style="color: var(--muted); font-size: 0.85rem;">9am-8pm CST</div>
+            </div>
+
+            <div style="background: var(--bg3); padding: 32px; border-radius: 12px; border: 1px solid var(--border);">
+                <div style="font-size: 2rem; margin-bottom: 16px;">📍</div>
+                <div style="font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px;">Location</div>
+                <div style="color: var(--text); font-size: 1rem; margin-bottom: 4px;">Kearney, Nebraska</div>
+                <div style="color: var(--muted); font-size: 0.85rem;">Available in Midwest region mostly</div>
+            </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, rgba(200,169,110,0.1) 0%, rgba(200,169,110,0.05) 100%); border: 1px solid var(--accent); border-radius: 16px; padding: 48px 40px; margin-bottom: 40px;">
+            <h2 style="font-family: var(--font-display); font-size: 2.2rem; font-weight: 300; margin-bottom: 16px;">Ready to Book a Session?</h2>
+            <p style="color: var(--muted); margin-bottom: 32px; line-height: 1.7;">Fill out my booking form and I'll get back to you with availability, pricing, and next steps.</p>
+            <a href="@Url.Action("Index", "Book")" class="btn btn-solid" style="font-size: 0.78rem; padding: 16px 40px;">Book a Session →</a>
+        </div>
+
+        <div style="border-top: 1px solid var(--border); padding-top: 32px;">
+            <div style="font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px;">Available For</div>
+            <div style="color: var(--text); font-size: 1rem; line-height: 1.8;">
+                Portrait Sessions · Wildlife Photography · Event Coverage<br />
+                Commercial Projects · Editorial Work 
+            </div>
+        </div>
+    </div>
+</div>
+
+@* <style>
+     @media (max-width: 768px) {
+        .contact-page h1 { font-size: 2.2rem !important; }
+        .contact-page > div { padding: 48px 24px !important; }
+    } 
+</style> *@

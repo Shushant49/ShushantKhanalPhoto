@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Shushant Khanal Photo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <nav class="site-nav">
+        <a class="nav-brand" asp-controller="Home" asp-action="Index">Shu_Kha Photography</a>
+        <ul class="nav-links">
+            <li><a asp-controller="Home" asp-action="Index" class="@(ViewData["ActivePage"]?.ToString() == "Home" ? "active" : "")">Home</a></li>
+            <li><a asp-controller="Gallery" asp-action="Index" class="@(ViewData["ActivePage"]?.ToString() == "Gallery" ? "active" : "")">Gallery</a></li>
+            <li><a asp-controller="About" asp-action="Index" class="@(ViewData["ActivePage"]?.ToString() == "About" ? "active" : "")">About Me</a></li>
+            <li><a asp-controller="Contact" asp-action="Index" class="@(ViewData["ActivePage"]?.ToString() == "Contact" ? "active" : "")">Contact Me</a></li>
+            <li><a asp-controller="Book" asp-action="Index" class="@(ViewData["ActivePage"]?.ToString() == "Book" ? "active" : "")">Book a Session</a></li>
+        </ul>
+        <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; @DateTime.Now.Year Shu_Kha Photography &mdash; All rights reserved.</p>
+    </footer>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -22,5 +22,8 @@ namespace ShushantKhanalPhoto.Models
         public DateTime DateTaken { get; set; } = DateTime.UtcNow;
 
         public bool IsFeatured { get; set; } = false;  // pin favorites to the top
+
+        [StringLength(255)]
+        public string? CloudinaryPublicId { get; set; }  // links the row to its Cloudinary asset for syncing
     }
 }

@@ -281,6 +281,7 @@ img {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     grid-template-rows: 340px;
+    grid-auto-rows: 340px;  /* more than 3 featured photos wrap into extra rows */
     gap: 3px;
 }
 
@@ -669,6 +670,7 @@ img {
     .featured-grid {
         grid-template-columns: 1fr;
         grid-template-rows: 240px 200px 200px;
+        grid-auto-rows: 200px;
     }
 
     .about-grid, .contact-grid {

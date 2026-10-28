@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ShushantKhanalPhoto.Data;
 using ShushantKhanalPhoto.Models;
 using System.Diagnostics;
 
@@ -6,9 +8,22 @@ namespace ShushantKhanalPhoto.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ApplicationDbContext context)
         {
-            return View();
+            _context = context;
+        }
+
+        // Home page "Featured Work" strip: every photo tagged "featured" in Cloudinary, newest first
+        public async Task<IActionResult> Index()
+        {
+            var featured = await _context.Photos
+                .Where(p => p.IsFeatured)
+                .OrderByDescending(p => p.DateTaken)
+                .ToListAsync();
+
+            return View(featured);
         }
 
         public IActionResult Privacy()
